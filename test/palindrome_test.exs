@@ -23,4 +23,12 @@ defmodule PalindromeTest do
   test "'Fish hsif' is not a palindrome" do
     refute palindrome?("Fish hsif")
   end
+
+  test "'1000000001' is a palindrome with palidrome2" do
+    assert palindrome2?("aba")
+  end
+
+  test "'  aba' is not a palindrome with palindrome2" do
+    refute palindrome2?("  aba")
+  end
 end
