@@ -1,0 +1,65 @@
+defmodule ReverseString do
+  @moduledoc """
+  Given a string, return a new string with the reversed
+  order of characters
+  """
+
+  @doc """
+  Reverse 1.
+
+  ## Examples
+
+      iex> ReverseString.reverse1("abcd")
+      "dcba"
+      iex> ReverseString.reverse1("  abcd")
+      "dcba  "
+      iex> ReverseString.reverse1("ãáàéè")
+      "èéàáã"
+  """
+  def reverse1(str) do
+    String.reverse(str)
+  end
+
+  @doc """
+  Reverse 2.
+
+  ## Examples
+
+      iex> ReverseString.reverse2("abcd")
+      "dcba"
+      iex> ReverseString.reverse2("  abcd")
+      "dcba  "
+      iex> ReverseString.reverse2("ãáàéè")
+      "èéàáã"
+  """
+  def reverse2(str) do
+    str
+    |> String.graphemes
+    |> reverse2_helper
+    |> Enum.join("")
+  end
+
+  defp reverse2_helper([]), do: []
+  defp reverse2_helper([h | t]) do
+    reverse2_helper(t) ++ [h]
+  end
+
+  @doc """
+  Reverse 3.
+
+  ## Examples
+
+      iex> ReverseString.reverse3("abcd")
+      "dcba"
+      iex> ReverseString.reverse3("  abcd")
+      "dcba  "
+      iex> ReverseString.reverse3("ãáàéè")
+      "èéàáã"
+  """
+  def reverse3(str) do
+    str
+    |> String.graphemes
+    |> Enum.reduce("", fn(x, acc) -> "#{x}#{acc}" end)
+  end
+
+end
