@@ -1,4 +1,4 @@
-defmodule ReverseInteger do
+defmodule Algo.ReverseInteger do
 
   @moduledoc """
   Given an integer, return an integer that is the reverse
@@ -10,11 +10,12 @@ defmodule ReverseInteger do
 
   ## Examples
 
-      iex> ReverseInteger.reverse_int(0)
+      iex> import Algo.ReverseInteger
+      iex> reverse_int(0)
       0
-      iex> ReverseInteger.reverse_int(051)
+      iex> reverse_int(051)
       15
-      iex> ReverseInteger.reverse_int(-015)
+      iex> reverse_int(-015)
       -51
   """
   def reverse_int(int) do

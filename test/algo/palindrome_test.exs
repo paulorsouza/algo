@@ -1,8 +1,8 @@
-defmodule PalindromeTest do
+defmodule Algo.PalindromeTest do
   use ExUnit.Case
-  import Palindrome
+  import Algo.Palindrome
 
-  doctest Palindrome
+  doctest Algo.Palindrome
 
   test "'aba' is a palindrome" do
     assert palindrome?("aba")

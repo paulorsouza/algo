@@ -1,8 +1,8 @@
-defmodule MaxCharTest do
+defmodule Algo.MaxCharTest do
   use ExUnit.Case
-  import MaxChar
+  import Algo.MaxChar
 
-  doctest MaxChar
+  doctest Algo.MaxChar
 
   test "Finds the most frequently used char" do
     assert max_char("a") == "a"

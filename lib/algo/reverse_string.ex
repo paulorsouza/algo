@@ -1,4 +1,4 @@
-defmodule ReverseString do
+defmodule Algo.ReverseString do
   @moduledoc """
   Given a string, return a new string with the reversed
   order of characters
@@ -9,11 +9,12 @@ defmodule ReverseString do
 
   ## Examples
 
-      iex> ReverseString.reverse1("abcd")
+      iex> import Algo.ReverseString
+      iex> reverse1("abcd")
       "dcba"
-      iex> ReverseString.reverse1("  abcd")
+      iex> reverse1("  abcd")
       "dcba  "
-      iex> ReverseString.reverse1("ãáàéè")
+      iex> reverse1("ãáàéè")
       "èéàáã"
   """
   def reverse1(str) do
@@ -25,11 +26,12 @@ defmodule ReverseString do
 
   ## Examples
 
-      iex> ReverseString.reverse2("abcd")
+      iex> import Algo.ReverseString
+      iex> reverse2("abcd")
       "dcba"
-      iex> ReverseString.reverse2("  abcd")
+      iex> reverse2("  abcd")
       "dcba  "
-      iex> ReverseString.reverse2("ãáàéè")
+      iex> reverse2("ãáàéè")
       "èéàáã"
   """
   def reverse2(str) do
@@ -49,11 +51,12 @@ defmodule ReverseString do
 
   ## Examples
 
-      iex> ReverseString.reverse3("abcd")
+      iex> import Algo.ReverseString
+      iex> reverse3("abcd")
       "dcba"
-      iex> ReverseString.reverse3("  abcd")
+      iex> reverse3("  abcd")
       "dcba  "
-      iex> ReverseString.reverse3("ãáàéè")
+      iex> reverse3("ãáàéè")
       "èéàáã"
   """
   def reverse3(str) do

@@ -1,4 +1,4 @@
-defmodule FizzBuzz do
+defmodule Algo.FizzBuzz do
   @moduledoc """
   Write a program that console logs the numbers
   from 1 to n. But for multiples of three print
@@ -12,7 +12,8 @@ defmodule FizzBuzz do
 
   ## Examples
 
-      iex> FizzBuzz.fizzbuzz(3)
+      iex> import Algo.FizzBuzz
+      iex> fizzbuzz(3)
       [1,2,"fizz"]
   """
   def fizzbuzz(count) do

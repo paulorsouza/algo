@@ -1,12 +1,8 @@
-defmodule ReverseIntegerTest do
+defmodule Algo.ReverseIntegerTest do
   use ExUnit.Case
-  import ReverseInteger
+  import Algo.ReverseInteger
 
-  doctest ReverseInteger
-
-  test "Reverse reverses a string" do
-    assert "dcba" == ReverseString.reverse1("abcd")
-  end
+  doctest Algo.ReverseInteger
 
   test "ReverseInt handles 0 as an input" do
     assert reverse_int(0) == 0

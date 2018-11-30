@@ -1,8 +1,8 @@
-defmodule FizzBuzzTest do
+defmodule Algo.FizzBuzzTest do
   use ExUnit.Case
-  import FizzBuzz
+  import Algo.FizzBuzz
 
-  doctest FizzBuzz
+  doctest Algo.FizzBuzz
 
   test "Calling fizzbuzz with '5' prints out 5 statements" do
     assert fizzbuzz(5) |> Enum.count() == 5

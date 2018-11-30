@@ -1,8 +1,8 @@
-defmodule ChunkTest do
+defmodule Algo.ChunkTest do
   use ExUnit.Case
-  import Chunk
+  import Algo.Chunk
 
-  doctest Chunk
+  doctest Algo.Chunk
 
   test "chunk divides an array of 10 elements with chunk size 2" do
     arr = [1,2,3,4,5,6,7,8,9,10]

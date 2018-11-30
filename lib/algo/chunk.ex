@@ -1,4 +1,4 @@
-defmodule Chunk do
+defmodule Algo.Chunk do
   @moduledoc """
   Given an array and chunk size, divide the array into many subarrays
   where each subarray is of length size
@@ -8,7 +8,9 @@ defmodule Chunk do
   Chunk
 
   ## Examples
-      iex> Chunk.chunk([1,2,3,4], 2)
+  
+      iex> import Algo.Chunk
+      iex> chunk([1,2,3,4], 2)
       [[1,2],[3,4]]
   """
   def chunk(arr, length) do

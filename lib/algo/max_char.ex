@@ -1,4 +1,4 @@
-defmodule MaxChar do
+defmodule Algo.MaxChar do
   @moduledoc """
   Given a string, return the character that is most commonly used in the string
   """
@@ -8,9 +8,10 @@ defmodule MaxChar do
 
   ## Examples
 
-      iex> MaxChar.max_char("abcccccccd")
+      iex> import Algo.MaxChar
+      iex> max_char("abcccccccd")
       "c"
-      iex> MaxChar.max_char("apple 12311111")
+      iex> max_char("apple 12311111")
       "1"
   """
   def max_char(string) do

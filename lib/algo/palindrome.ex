@@ -1,4 +1,4 @@
-defmodule Palindrome do
+defmodule Algo.Palindrome do
   @moduledoc """
   Given a string, return true if the string is a palindrome
   or false if it is not.  Palindromes are strings that
@@ -11,8 +11,9 @@ defmodule Palindrome do
 
   ## Examples
 
-    iex> Palindrome.palindrome?("aba")
-    true
+      iex> import Algo.Palindrome
+      iex> palindrome?("aba")
+      true
   """
   def palindrome?(str) do
     str == String.reverse(str)
@@ -23,8 +24,9 @@ defmodule Palindrome do
 
   ## Examples
 
-    iex> Palindrome.palindrome?("aba")
-    true
+      iex> import Algo.Palindrome
+      iex> palindrome2?("aba")
+      true
   """
   def palindrome2?(str) do
     str = String.graphemes(str) |> Enum.with_index(1)
