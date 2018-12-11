@@ -14,11 +14,81 @@ defmodule Advent.ChronalCalibration do
     |> sum_lines(_current_frequency = 0)
   end
 
+  def frequency(input) do
+    input
+    |> String.splitter("\n", trim: true)
+    |> Stream.map(fn line -> String.to_integer(line) end)
+    |> Enum.sum()
+  end
+
+  def freq(input) do
+    input
+    |> Stream.map(fn line ->
+      {integer, _leftover} = Integer.parse(line)
+      integer
+    end)
+    |> Enum.sum()
+  end
+
   def sum_lines([], acc), do: acc
 
   def sum_lines([line | lines], acc) do
     frequency = String.to_integer(line) + acc
     sum_lines(lines, frequency)
+  end
+
+  def repeated_frequency(input) do
+    input
+    |> Stream.map(fn line ->
+      {integer, _leftover} = Integer.parse(line)
+      integer
+    end)
+    |> Stream.cycle()
+    |> Enum.reduce_while({0, [0]}, fn x, {current, seen_frequencies} ->
+      new_freq = current + x
+      if new_freq in seen_frequencies do
+        {:halt, new_freq}
+      else
+        {:cont, {new_freq, [new_freq | seen_frequencies]}}
+      end
+    end)
+  end
+
+  def repeated_freq(input) do
+    input
+    |> Stream.map(fn line ->
+      {integer, _leftover} = Integer.parse(line)
+      integer
+    end)
+    |> Stream.cycle()
+    |> Enum.reduce_while({0, MapSet.new([0])}, fn x, {current, seen_frequencies} ->
+      new_freq = current + x
+      if new_freq in seen_frequencies do
+        {:halt, new_freq}
+      else
+        {:cont, {new_freq, MapSet.put(seen_frequencies, new_freq)}}
+      end
+    end)
+  end
+
+  def first_twice(input) do
+    Process.put({__MODULE__, 0}, true)
+    input
+    |> Stream.map(fn line ->
+      {integer, _leftover} = Integer.parse(line)
+      integer
+    end)
+    |> Stream.cycle()
+    |> Enum.reduce_while(0, fn x, current ->
+      new_freq = current + x
+      key = {__MODULE__, new_freq}
+      if Process.get(key) do
+        {:halt, new_freq}
+      else
+        Process.put({__MODULE__, new_freq}, true)
+        {:cont, new_freq}
+      end
+    end)
   end
 
 end

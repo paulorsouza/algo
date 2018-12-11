@@ -3,6 +3,7 @@ defmodule Algo.StepsTests do
   import Algo.Steps
   import ExUnit.CaptureIO
 
+  @moduletag :algo
   doctest Algo.Steps
 
   test "should output 5 lines with # progressively with print_steps" do

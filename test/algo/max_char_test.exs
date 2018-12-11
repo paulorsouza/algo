@@ -2,6 +2,7 @@ defmodule Algo.MaxCharTest do
   use ExUnit.Case
   import Algo.MaxChar
 
+  @moduletag :algo
   doctest Algo.MaxChar
 
   test "Finds the most frequently used char" do

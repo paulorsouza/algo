@@ -2,6 +2,7 @@ defmodule Algo.PalindromeTest do
   use ExUnit.Case
   import Algo.Palindrome
 
+  @moduletag :algo
   doctest Algo.Palindrome
 
   test "'aba' is a palindrome" do

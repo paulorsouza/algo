@@ -2,6 +2,8 @@ defmodule Advent.HelperTest do
   use ExUnit.Case
   import Advent.Helper
 
+  @moduletag :advent
+
   test "convert lines into a list" do
     lines = """
     a

@@ -2,6 +2,7 @@ defmodule Algo.ReverseIntegerTest do
   use ExUnit.Case
   import Algo.ReverseInteger
 
+  @moduletag :algo
   doctest Algo.ReverseInteger
 
   test "ReverseInt handles 0 as an input" do

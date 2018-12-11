@@ -2,6 +2,7 @@ defmodule Algo.FizzBuzzTest do
   use ExUnit.Case
   import Algo.FizzBuzz
 
+  @moduletag :algo
   doctest Algo.FizzBuzz
 
   test "Calling fizzbuzz with '5' prints out 5 statements" do
