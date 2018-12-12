@@ -3,9 +3,9 @@
               {description,"algo"},
               {modules,['Elixir.Advent.ChronalCalibration',
                         'Elixir.Advent.Helper','Elixir.Advent.MarbleMania',
-                        'Elixir.Algo.Chunk','Elixir.Algo.FizzBuzz',
-                        'Elixir.Algo.MaxChar','Elixir.Algo.Palindrome',
-                        'Elixir.Algo.ReverseInteger',
+                        'Elixir.Advent.StarAlign','Elixir.Algo.Chunk',
+                        'Elixir.Algo.FizzBuzz','Elixir.Algo.MaxChar',
+                        'Elixir.Algo.Palindrome','Elixir.Algo.ReverseInteger',
                         'Elixir.Algo.ReverseString','Elixir.Algo.Steps']},
               {registered,[]},
               {vsn,"0.1.0"}]}.

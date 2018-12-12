@@ -4,8 +4,6 @@ defmodule Advent.ChronalCalibrationTest do
   import Advent.Helper
   import Advent.ChronalCalibration
 
-  doctest Advent.ChronalCalibration
-
   @moduletag :advent
 
   test "final_frequency/1" do
