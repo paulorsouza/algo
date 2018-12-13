@@ -8,6 +8,60 @@ defmodule Advent.InventoryManagementSystem do
   To make sure you didn't miss any, you scan the likely candidate boxes again, counting the number that have an ID containing exactly two of any letter and then separately counting those with exactly three of any letter. You can multiply those two counts together to get a rudimentary checksum and compare it to what your device predicts.
   """
 
+  def correct_box(boxes) do
+    boxes
+    |> Enum.map(&String.to_charlist/1)
+    |> closest_id()
+
+  end
+
+  def closest_id(boxes) do
+    boxes
+    |> closest_id('')
+  end
+
+  def closest_id(_, closest_box) when length(closest_box) == 25 do
+    closest_box
+  end
+
+  def closest_id([], closest_box) do
+    closest_box
+  end
+
+  def closest_id([box | rest], closest_box) do
+    closest = closest_chars(box, rest, closest_box)
+    new_closest_box = if(length(closest_box) < length(closest)) do
+      closest
+    else
+      closest_box
+    end
+    closest_id(rest, new_closest_box)
+  end
+
+  def closest_chars(_, _, closest_box) when length(closest_box) == 25 do
+    closest_box
+  end
+
+  def closest_chars(_, '', closest_box) do
+    closest_box
+  end
+
+  def closest_chars(left, [right | rest], closest_box)  do
+    {current, _} = Enum.zip(left, right)
+    |> Enum.filter(fn {a, b} -> a == b end)
+    |> Enum.unzip()
+
+
+    new_closest_box = if(length(closest_box) < length(current)) do
+      current
+    else
+      closest_box
+    end
+    closest_chars(left, rest, new_closest_box)
+  end
+
+
+
   def two_map(string) do
     string
     |> String.to_charlist()

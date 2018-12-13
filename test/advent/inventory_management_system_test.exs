@@ -58,4 +58,28 @@ defmodule Advent.InventoryManagementSystemTest do
     |> checksum()
     assert result == 8398
   end
+
+  test "correct_box/1 real" do
+    result = "test/advent/input_text/inventory.txt"
+    |> file_to_list()
+    |> correct_box()
+    assert result == 'hhvsdkatysmiqjxunezgwcdpr'
+  end
+
+  test "correct_box/1" do
+    list = [
+      "abcde",
+      "fghij",
+      "klmno",
+      "pqrst",
+      "fguij",
+      "axcye",
+      "wvxyz"
+    ]
+
+    result = list
+    |> correct_box()
+
+    assert result == 'fgij'
+  end
 end
