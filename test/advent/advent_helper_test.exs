@@ -11,6 +11,7 @@ defmodule Advent.HelperTest do
     c
     d
     """
+
     assert lines_to_list(lines) == ["a", "b", "c", "d"]
   end
 
@@ -21,12 +22,15 @@ defmodule Advent.HelperTest do
     1 c 1
     + 1d
     """
+
     assert lines_to_list(lines) == ["+ ax", "- 12", "1 c 1", "+ 1d"]
   end
 
   test "convert text input to a list" do
-    result = "test/advent/input_text/simple.txt"
-    |> file_to_list()
+    result =
+      "test/advent/input_text/simple.txt"
+      |> file_to_list()
+
     assert result == ["ax", "bx", "cx", "dx"]
   end
 end

@@ -36,12 +36,13 @@ defmodule Algo.ReverseString do
   """
   def reverse2(str) do
     str
-    |> String.graphemes
+    |> String.graphemes()
     |> reverse2_helper
     |> Enum.join("")
   end
 
   defp reverse2_helper([]), do: []
+
   defp reverse2_helper([h | t]) do
     reverse2_helper(t) ++ [h]
   end
@@ -61,8 +62,7 @@ defmodule Algo.ReverseString do
   """
   def reverse3(str) do
     str
-    |> String.graphemes
-    |> Enum.reduce("", fn(x, acc) -> "#{x}#{acc}" end)
+    |> String.graphemes()
+    |> Enum.reduce("", fn x, acc -> "#{x}#{acc}" end)
   end
-
 end

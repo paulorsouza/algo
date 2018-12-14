@@ -8,7 +8,7 @@ defmodule Algo.Chunk do
   Chunk
 
   ## Examples
-  
+
       iex> import Algo.Chunk
       iex> chunk([1,2,3,4], 2)
       [[1,2],[3,4]]
@@ -18,7 +18,7 @@ defmodule Algo.Chunk do
   end
 
   defp chunk([], length, chunked, last) do
-    if (Enum.count(last) <= length) do
+    if Enum.count(last) <= length do
       chunked ++ [last]
     else
       chunked

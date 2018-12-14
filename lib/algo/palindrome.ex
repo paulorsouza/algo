@@ -30,10 +30,12 @@ defmodule Algo.Palindrome do
   """
   def palindrome2?(str) do
     str = String.graphemes(str) |> Enum.with_index(1)
+
     compare = fn {char, index} ->
       {compare_char, _} = Enum.at(str, Enum.count(str) - index)
       compare_char == char
     end
+
     str |> Enum.all?(&compare.(&1))
   end
 end

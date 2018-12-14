@@ -1,5 +1,4 @@
 defmodule Advent.Helper do
-
   @doc """
   Receive a string with lines and returs a List
   """

@@ -12,7 +12,6 @@ defmodule Advent.InventoryManagementSystem do
     boxes
     |> Enum.map(&String.to_charlist/1)
     |> closest_id()
-
   end
 
   def closest_id(boxes) do
@@ -30,11 +29,14 @@ defmodule Advent.InventoryManagementSystem do
 
   def closest_id([box | rest], closest_box) do
     closest = closest_chars(box, rest, closest_box)
-    new_closest_box = if(length(closest_box) < length(closest)) do
-      closest
-    else
-      closest_box
-    end
+
+    new_closest_box =
+      if(length(closest_box) < length(closest)) do
+        closest
+      else
+        closest_box
+      end
+
     closest_id(rest, new_closest_box)
   end
 
@@ -46,49 +48,53 @@ defmodule Advent.InventoryManagementSystem do
     closest_box
   end
 
-  def closest_chars(left, [right | rest], closest_box)  do
-    {current, _} = Enum.zip(left, right)
-    |> Enum.filter(fn {a, b} -> a == b end)
-    |> Enum.unzip()
+  def closest_chars(left, [right | rest], closest_box) do
+    {current, _} =
+      Enum.zip(left, right)
+      |> Enum.filter(fn {a, b} -> a == b end)
+      |> Enum.unzip()
 
+    new_closest_box =
+      if(length(closest_box) < length(current)) do
+        current
+      else
+        closest_box
+      end
 
-    new_closest_box = if(length(closest_box) < length(current)) do
-      current
-    else
-      closest_box
-    end
     closest_chars(left, rest, new_closest_box)
   end
-
-
 
   def two_map(string) do
     string
     |> String.to_charlist()
     |> Enum.reduce(%{}, fn x, acc ->
-      Map.update(acc, x, 1, & &1 + 1)
+      Map.update(acc, x, 1, &(&1 + 1))
     end)
   end
 
   def comp(list) do
-    {twice, thrice} = list
-    |> Enum.map(fn x ->
-      x |> two_map() |> get_twice_and_thrice
-    end)
-    |> Enum.reduce({0, 0}, fn {twice, thrice}, {total_twice, total_thrice} ->
-      {twice + total_twice, thrice + total_thrice}
-    end)
+    {twice, thrice} =
+      list
+      |> Enum.map(fn x ->
+        x |> two_map() |> get_twice_and_thrice
+      end)
+      |> Enum.reduce({0, 0}, fn {twice, thrice}, {total_twice, total_thrice} ->
+        {twice + total_twice, thrice + total_thrice}
+      end)
+
     twice * thrice
   end
 
   def checksum(list) do
-    {twice, thrice} = list
-    |> Enum.map(fn x ->
-      x |> count_chars() |> get_twice_and_thrice
-    end)
-    |> Enum.reduce({0, 0}, fn {twice, thrice}, {total_twice, total_thrice} ->
-      {twice + total_twice, thrice + total_thrice}
-    end)
+    {twice, thrice} =
+      list
+      |> Enum.map(fn x ->
+        x |> count_chars() |> get_twice_and_thrice
+      end)
+      |> Enum.reduce({0, 0}, fn {twice, thrice}, {total_twice, total_thrice} ->
+        {twice + total_twice, thrice + total_thrice}
+      end)
+
     twice * thrice
   end
 
@@ -106,7 +112,7 @@ defmodule Advent.InventoryManagementSystem do
   end
 
   def count_chars(<<codepoint::utf8, rest::binary>>, acc) do
-    acc = Map.update(acc, codepoint, 1, & &1 + 1)
+    acc = Map.update(acc, codepoint, 1, &(&1 + 1))
     count_chars(rest, acc)
   end
 

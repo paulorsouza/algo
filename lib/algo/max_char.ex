@@ -16,10 +16,13 @@ defmodule Algo.MaxChar do
   """
   def max_char(string) do
     mapped_string = map_string(string)
-    {key, _} =Enum.max_by(mapped_string, fn map ->
-      {_, value} = map
-      value
-    end)
+
+    {key, _} =
+      Enum.max_by(mapped_string, fn map ->
+        {_, value} = map
+        value
+      end)
+
     key
   end
 

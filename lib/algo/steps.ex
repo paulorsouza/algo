@@ -17,7 +17,7 @@ defmodule Algo.Steps do
 
   defp print_steps(n, row, line) do
     if(String.length(line) == n) do
-      IO.puts line
+      IO.puts(line)
       print_steps(n, row + 1, "")
     else
       if(String.length(line) >= row) do
@@ -36,12 +36,13 @@ defmodule Algo.Steps do
     columns = 1..steps
 
     for column <- columns, row <- rows do
-      if (row <= column) do
-         IO.write "#"
-       else
-         IO.write " "
+      if row <= column do
+        IO.write("#")
+      else
+        IO.write(" ")
       end
-      if (row == steps and column != steps), do: IO.puts ""
+
+      if row == steps and column != steps, do: IO.puts("")
     end
   end
 end

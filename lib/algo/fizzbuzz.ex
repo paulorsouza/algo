@@ -17,8 +17,8 @@ defmodule Algo.FizzBuzz do
       [1,2,"fizz"]
   """
   def fizzbuzz(count) do
-    1..count |>
-    Enum.map(&fizzbuzz?/1)
+    1..count
+    |> Enum.map(&fizzbuzz?/1)
   end
 
   defp fizzbuzz?(num) when rem(num, 15) == 0, do: "fizzbuzz"

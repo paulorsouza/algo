@@ -46,6 +46,7 @@ defmodule Advent.ChronalCalibration do
     |> Stream.cycle()
     |> Enum.reduce_while({0, [0]}, fn x, {current, seen_frequencies} ->
       new_freq = current + x
+
       if new_freq in seen_frequencies do
         {:halt, new_freq}
       else
@@ -63,6 +64,7 @@ defmodule Advent.ChronalCalibration do
     |> Stream.cycle()
     |> Enum.reduce_while({0, MapSet.new([0])}, fn x, {current, seen_frequencies} ->
       new_freq = current + x
+
       if new_freq in seen_frequencies do
         {:halt, new_freq}
       else
@@ -73,6 +75,7 @@ defmodule Advent.ChronalCalibration do
 
   def first_twice(input) do
     Process.put({__MODULE__, 0}, true)
+
     input
     |> Stream.map(fn line ->
       {integer, _leftover} = Integer.parse(line)
@@ -82,6 +85,7 @@ defmodule Advent.ChronalCalibration do
     |> Enum.reduce_while(0, fn x, current ->
       new_freq = current + x
       key = {__MODULE__, new_freq}
+
       if Process.get(key) do
         {:halt, new_freq}
       else
@@ -90,5 +94,4 @@ defmodule Advent.ChronalCalibration do
       end
     end)
   end
-
 end

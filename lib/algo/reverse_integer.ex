@@ -1,5 +1,4 @@
 defmodule Algo.ReverseInteger do
-
   @moduledoc """
   Given an integer, return an integer that is the reverse
   ordering of numbers.
@@ -19,11 +18,12 @@ defmodule Algo.ReverseInteger do
       -51
   """
   def reverse_int(int) do
-    { reversal, _ } = int
-    |> Integer.to_string()
-    |> String.reverse()
-    |> Integer.parse()
+    {reversal, _} =
+      int
+      |> Integer.to_string()
+      |> String.reverse()
+      |> Integer.parse()
 
-    int < 0 && reversal * -1 || reversal
+    (int < 0 && reversal * -1) || reversal
   end
 end

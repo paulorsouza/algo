@@ -13,5 +13,4 @@ defmodule Algo.MaxCharTest do
   test "Works with numbers in the string" do
     assert max_char("ab1111cd1112111d") == "1"
   end
-
 end
