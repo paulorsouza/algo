@@ -12,7 +12,7 @@ defmodule Algo.Pyramid do
 
   defp draw(n, row, _) when n == row, do: nil
 
-  defp draw(n, row, level) when length(level) == (2 * n - 1) do
+  defp draw(n, row, level) when length(level) == 2 * n - 1 do
     IO.puts(level)
     draw(n, row + 1, '')
   end

@@ -68,6 +68,7 @@ defmodule Advent.StarAlignTest do
     IO.puts(result)
   end
 
+  @tag :slow
   test "puzzle awnser/1" do
     result =
       file_to_list("test/advent/input_text/star_align.txt")
